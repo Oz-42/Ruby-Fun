@@ -5,6 +5,8 @@ A fun play with cellular automaton
 
 * still a work in progress
 
+Trying to implemement Conway's Game of Life with ruby via terminal
+
 =end
 
 class GameOfLife

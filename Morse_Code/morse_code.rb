@@ -19,11 +19,12 @@ class MorseCode
     @morse_new_m = Array.new # the morse equivalent
     @morseNalpha = Hash.new # the hash map for alphabets to morse
 
-    init_morse_HashMap
+    init_morse_HashMap # Function call to initialize the hash map
   end
 
+  # initialize the hash map
   def init_morse_HashMap
-
+    # key = alphabet, value = morse code
     @morseNalpha['a'] = ".-"
 		@morseNalpha['b'] = "-..."
 		@morseNalpha['c'] = "-.-."
@@ -77,16 +78,19 @@ class MorseCode
     @in_arr = in_arr
   end
 
+  # Setter method for input string array
   def get_in_arr # testing purposes
     return @in_arr
   end
 
+  # Converting to morse code method
   def convert_to_morse
     @in_arr.each do |e|
       @morse_new_m.push(@morseNalpha[e])
     end
   end
 
+  # Getter method final morse code equivalent
   def get_morse_code()
     return @morse_new_m
   end
@@ -94,18 +98,22 @@ class MorseCode
 end
 
 while true
-
+  # Prompt input
   print "Please type a string: "
-  user_input = gets.chomp.split("").map(&:to_s)
+  user_input = gets.chomp.split("").map(&:to_s) # split the input into character array
 
+  # Create object
   morse_obj = MorseCode.new(user_input)
 
+  # Function call
   morse_obj.convert_to_morse
 
+  # Grab new string and pass it to new array
   morse_code_arr = morse_obj.get_morse_code
 
   # puts "Morse String? ==> #{morse_code_arr}" # in array format
 
+  # Display new morse code equivalent
   print "Morse Code Equivalence ===> "
   morse_code_arr.each {|e| print "#{e} "} # no space between all characters
 

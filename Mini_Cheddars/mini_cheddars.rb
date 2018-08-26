@@ -14,13 +14,13 @@ Mini Cheddar Version ===> hEllO thErE strAngEr
 class MiniCheddar
 
   def initialize(str)
-    @ini_str = str.split.map(&:to_s)
+    @ini_str = str.split.map(&:to_s) # initialize array string of words split from user inpu
 
-    @ini_str.each {|word| word.downcase!}
+    @ini_str.each {|word| word.downcase!} # convert to lowercase
 
-    @ini_vowels = ["a", "e", "i", "o", "u"]
+    @ini_vowels = ["a", "e", "i", "o", "u"] # initialize the array of vowels
 
-    @mini_cheddar_final = Array.new
+    @mini_cheddar_final = Array.new # create array for final mini_cheddar string
   end
 
   def ini_str=(str)
@@ -30,22 +30,22 @@ class MiniCheddar
   end
 
   def to_mini_cheddar
-    @ini_str.each do |str|
-      str_char = str.split(//)
+    @ini_str.each do |str| # use each block to split word into array of characters
+      str_char = str.split(//) # split the word into characters/letters
       cheddared_str = ""
 
-      str_char.each do |char|
+      str_char.each do |char| # go through each letter
 
-        @ini_vowels.size.times do |i|
+        @ini_vowels.size.times do |i| # loop through the vowel size
           vowel_char = @ini_vowels[i]
 
-          if (char == vowel_char)
+          if (char == vowel_char) # checks if current letter matches current loop vowel character
             cheddared_str += char.upcase
-            break
+            break # break immediatley from the loop cause char matched vowel character
           end
 
           if (i == @ini_vowels.size - 1)
-            cheddared_str = cheddared_str + char
+            cheddared_str += char
           end
         end
       end
@@ -54,23 +54,28 @@ class MiniCheddar
     end
   end
 
+  # Getter method for final mini_cheddar string
   def mini_cheddar_final
-    return @mini_cheddar_final
+    return @mini_cheddar_final # return final mini_cheddar string
   end
 
 end
 
 while true
-
+  # Prompt input
   print "Please type a string: "
   user_input = gets.chomp.to_s
 
+  # Create new object
   small_cheddar = MiniCheddar.new(user_input)
 
+  # Functtion call
   small_cheddar.to_mini_cheddar
 
+  # Grab new string and pass it to new array
   mini_cheddar_array = small_cheddar.mini_cheddar_final
 
+  # Display new mini_cheddar string
   print "Mini Cheddar Version ===> "
   mini_cheddar_array.each {|word| print "#{word} "}
 
