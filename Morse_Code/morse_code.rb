@@ -95,6 +95,12 @@ class MorseCode
     return @morse_new_m
   end
 
+  # Clear the terminal
+  def clear_screen
+    system 'cls' # clear content on Windows cmd
+    system 'clear' # clear content on Terminal cmd
+  end
+
 end
 
 while true
@@ -120,8 +126,7 @@ while true
   print "\nContinue? y/n: "
   cont = gets.chomp.to_s
 
-  system 'cls' # clear content on Windows cmd
-  system 'clear' # clear content on Terminal cmd
+  morse_obj.clear_screen # method for clearing terminal
 
   break if cont == "n"
 

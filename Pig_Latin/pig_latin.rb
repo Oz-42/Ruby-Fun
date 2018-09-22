@@ -82,6 +82,12 @@ class PigLatin
     return @pig_latin_final
   end
 
+  # Clear the terminal
+  def clear_screen
+    system 'cls' # clear content on Windows cmd
+    system 'clear' # clear content on Terminal cmd
+  end
+
 end
 
 while true
@@ -112,8 +118,7 @@ while true
   print "\nContinue? y/n: "
   continue = gets.chomp.to_s
 
-  system 'cls' # clear content on Windows cmd
-  system 'clear' # clear content on Terminal cmd
+  pig_latin_obj.clear_screen # method for clearing terminal
 
   break if continue == "n"
 

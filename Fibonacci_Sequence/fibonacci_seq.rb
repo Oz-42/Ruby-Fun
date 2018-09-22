@@ -48,6 +48,14 @@ class MyFibonacci
     @c = c # set value of @c using setter
   end
 
+  # Clear the terminal
+  def clear_screen
+    print "\nPress enter to continue..."
+    gets
+    system 'cls' # clear content on Windows cmd
+    system 'clear' # clear content on Terminal cmd
+  end
+
 end
 
 fibo = MyFibonacci.new
@@ -69,10 +77,7 @@ while true
     # Functtion call
     fibo.fibo_seq # call the fibo_seq method using standard/default/initialized values
 
-    print "\nPress enter to continue..."
-    gets
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+    fibo.clear_screen # method for clearing terminal
 
   when 2
     # Ask user how many digits to print to screen
@@ -82,10 +87,7 @@ while true
     # Functtion call
     fibo.fibo_seq(nth) # add argument to tell loop when to end
 
-    print "\nPress enter to continue..."
-    gets
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+    fibo.clear_screen # method for clearing terminal
 
   when 3
     # Ask user what number to start at
@@ -103,10 +105,7 @@ while true
 
     fibo.fibo_seq(nth) # add argument to tell loop when to end
 
-    print "\nPress enter to continue..."
-    gets
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+    fibo.clear_screen # method for clearing terminal
 
   when 4
     puts "GoodBye!!!"

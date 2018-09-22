@@ -58,6 +58,14 @@ class GameOfLife
     puts "Grid cleared\n"
   end
 
+  # Clear the terminal
+  def clear_screen
+    print "\nPress enter to continue..."
+    gets
+    system 'cls' # clear content on Windows cmd
+    system 'clear' # clear content on Terminal cmd
+  end
+
 end
 
   puts "Welcome to CONWAY'S GAME OF LIFE"
@@ -86,18 +94,12 @@ when 1
 
   gol_obj.insert_points(points,row,col)
 
-  print "\nPress enter to continue..."
-  gets
-  system 'cls' # clear content on Windows cmd
-  system 'clear' # clear content on Terminal cmd
+  gol_obj.clear_screen # method for clearing terminal
 
 when 2
   gol_obj.clear_grid(row,col)
 
-  print "\nPress enter to continue..."
-  gets
-  system 'cls' # clear content on Windows cmd
-  system 'clear' # clear content on Terminal cmd
+  gol_obj.clear_screen # method for clearing terminal
 
 when 0
   puts "GoodBye!!!"
