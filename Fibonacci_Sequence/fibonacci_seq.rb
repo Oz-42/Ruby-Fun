@@ -49,23 +49,27 @@ class MyFibonacci
   end
 
   # Clear the terminal
-  def clear_screen
-    print "\nPress enter to continue..."
-    gets
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  def clear_screen(case_choice=nil)
+    if case_choice != 0 && case_choice == nil
+      print "\nPress enter to continue..."
+      gets
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    else
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    end
   end
-
 end
 
 fibo = MyFibonacci.new
 
-while true
+loop do
   # The menu option
   puts "\n1. Standard Fibonacci sequence"
   puts "2. To the Nth number sequence"
   puts "3. Start at ith number and end at nth number sequence"
-  puts "4. Exit"
+  puts "0. Exit"
 
   print "You're choice: "
   choice = gets.chomp.to_i
@@ -77,7 +81,7 @@ while true
     # Functtion call
     fibo.fibo_seq # call the fibo_seq method using standard/default/initialized values
 
-    fibo.clear_screen # method for clearing terminal
+    fibo.clear_screen(choice) # method for clearing terminal
 
   when 2
     # Ask user how many digits to print to screen
@@ -87,7 +91,7 @@ while true
     # Functtion call
     fibo.fibo_seq(nth) # add argument to tell loop when to end
 
-    fibo.clear_screen # method for clearing terminal
+    fibo.clear_screen(choice) # method for clearing terminal
 
   when 3
     # Ask user what number to start at
@@ -105,20 +109,15 @@ while true
 
     fibo.fibo_seq(nth) # add argument to tell loop when to end
 
-    fibo.clear_screen # method for clearing terminal
+    fibo.clear_screen(choice) # method for clearing terminal
 
-  when 4
-    puts "GoodBye!!!"
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  when 0 #
+    fibo.clear_screen(choice) # method for clearing terminal
     break # end the program if 4 is typed
 
   else
     puts "Invalid option, choose 1-5"
 
-    print "\nPress enter to continue..."
-    gets
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+    fibo.clear_screen(choice) # method for clearing terminal
   end
 end

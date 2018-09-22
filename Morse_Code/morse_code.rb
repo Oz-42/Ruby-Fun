@@ -96,9 +96,16 @@ class MorseCode
   end
 
   # Clear the terminal
-  def clear_screen
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  def clear_screen(case_choice=nil)
+    if case_choice != 0 && case_choice == nil
+      print "\nPress enter to continue..."
+      gets
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    else
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    end
   end
 
 end
@@ -126,7 +133,7 @@ while true
   print "\nContinue? y/n: "
   cont = gets.chomp.to_s
 
-  morse_obj.clear_screen # method for clearing terminal
+  morse_obj.clear_screen(0) # method for clearing terminal
 
   break if cont == "n"
 

@@ -43,9 +43,16 @@ class Palindrome
   end
 
   # Clear the terminal
-  def clear_screen
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  def clear_screen(case_choice=nil)
+    if case_choice != 0 && case_choice == nil
+      print "\nPress enter to continue..."
+      gets
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    else
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    end
   end
 
 end
@@ -66,7 +73,7 @@ while true
   print "Continue? y/n: "
   continue = gets.chomp.to_s
 
-  pali.clear_screen # method for clearing terminal
+  pali.clear_screen(0) # method for clearing terminal
 
   break if continue == "n"
 

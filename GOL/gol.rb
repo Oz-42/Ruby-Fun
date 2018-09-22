@@ -59,13 +59,17 @@ class GameOfLife
   end
 
   # Clear the terminal
-  def clear_screen
-    print "\nPress enter to continue..."
-    gets
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  def clear_screen(case_choice=nil)
+    if case_choice != 0 && case_choice == nil
+      print "\nPress enter to continue..."
+      gets
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    else
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    end
   end
-
 end
 
   puts "Welcome to CONWAY'S GAME OF LIFE"
@@ -78,7 +82,7 @@ end
   system 'cls' # clear content on Windows cmd
   system 'clear' # clear content on Terminal cmd
 
-while true
+loop do
   gol_obj.display_multi_array
   puts "1. Insert Point(s)"
   puts "2. Clear grid"
@@ -94,17 +98,15 @@ when 1
 
   gol_obj.insert_points(points,row,col)
 
-  gol_obj.clear_screen # method for clearing terminal
+  gol_obj.clear_screen(choice) # method for clearing terminal
 
 when 2
   gol_obj.clear_grid(row,col)
 
-  gol_obj.clear_screen # method for clearing terminal
+  gol_obj.clear_screen(choice) # method for clearing terminal
 
 when 0
-  puts "GoodBye!!!"
-  system 'cls' # clear content on Windows cmd
-  system 'clear' # clear content on Terminal cmd
+  gol_obj.clear_screen(choice) # method for clearing terminal
   break
 
 else

@@ -60,14 +60,21 @@ class MiniCheddar
   end
 
   # Clear the terminal
-  def clear_screen
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  def clear_screen(case_choice=nil)
+    if case_choice != 0 && case_choice == nil
+      print "\nPress enter to continue..."
+      gets
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    else
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    end
   end
 
 end
 
-while true
+loop do
   # Prompt input
   print "Please type a string: "
   user_input = gets.chomp.to_s
@@ -88,7 +95,7 @@ while true
   print "\nContinue? y/n: "
   continue = gets.chomp.to_s
 
-  small_cheddar.clear_screen # method for clearing terminal
+  small_cheddar.clear_screen(0) # method for clearing terminal
 
   break if continue == "n"
 

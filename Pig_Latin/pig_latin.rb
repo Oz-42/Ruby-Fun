@@ -83,9 +83,16 @@ class PigLatin
   end
 
   # Clear the terminal
-  def clear_screen
-    system 'cls' # clear content on Windows cmd
-    system 'clear' # clear content on Terminal cmd
+  def clear_screen(case_choice=nil)
+    if case_choice != 0 && case_choice == nil
+      print "\nPress enter to continue..."
+      gets
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    else
+      system 'cls' # clear content on Windows cmd
+      system 'clear' # clear content on Terminal cmd
+    end
   end
 
 end
@@ -113,12 +120,12 @@ while true
 
   # Display new pig latin equivalent
   print "Pig Latin Version ===> "
-  pl_final.each {|word| print "#{word} "}
+  pl_final.each { |word| print "#{word} " }
 
   print "\nContinue? y/n: "
   continue = gets.chomp.to_s
 
-  pig_latin_obj.clear_screen # method for clearing terminal
+  pig_latin_obj.clear_screen(0) # method for clearing terminal
 
   break if continue == "n"
 
