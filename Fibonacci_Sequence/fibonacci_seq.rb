@@ -52,7 +52,7 @@ class MyFibonacci
   def clear_screen(case_choice=nil)
     if case_choice != 0 && case_choice == nil
       print "\nPress enter to continue..."
-      gets
+      gets.chomp
       system 'cls' # clear content on Windows cmd
       system 'clear' # clear content on Terminal cmd
     else
@@ -81,7 +81,7 @@ loop do
     # Functtion call
     fibo.fibo_seq # call the fibo_seq method using standard/default/initialized values
 
-    fibo.clear_screen(choice) # method for clearing terminal
+    fibo.clear_screen() # method for clearing terminal
 
   when 2
     # Ask user how many digits to print to screen
@@ -91,7 +91,7 @@ loop do
     # Functtion call
     fibo.fibo_seq(nth) # add argument to tell loop when to end
 
-    fibo.clear_screen(choice) # method for clearing terminal
+    fibo.clear_screen() # method for clearing terminal
 
   when 3
     # Ask user what number to start at
@@ -109,7 +109,7 @@ loop do
 
     fibo.fibo_seq(nth) # add argument to tell loop when to end
 
-    fibo.clear_screen(choice) # method for clearing terminal
+    fibo.clear_screen() # method for clearing terminal
 
   when 0 #
     fibo.clear_screen(choice) # method for clearing terminal
@@ -118,6 +118,6 @@ loop do
   else
     puts "Invalid option, choose 1-5"
 
-    fibo.clear_screen(choice) # method for clearing terminal
+    fibo.clear_screen() # method for clearing terminal
   end
 end
