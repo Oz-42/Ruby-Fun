@@ -25,9 +25,9 @@ class GameOfLife
     @multi_array.each {|cell| puts "#{cell}"}
   end
 
-  # Insert co-ordinates
+  # Insert points in to co-ordinates
   def insert_points(points,row_cap,col_cap)
-    @points_array = Array.new(points) {Array.new(2,0)}
+    @points_array = Array.new(points) {Array.new(2,0)} # array of "points", and each value is another array of 2 each value of 0
 
     puts "Insert between: Row=>#{row_cap} Column=>#{col_cap}\n" # indicate to user where to insert points
 
@@ -81,9 +81,9 @@ class GameOfLife
       system 'clear' # clear content on Terminal cmd
     end
   end
-end
+end # end of class GameOfLife
 
-  puts "Welcome to CONWAY'S GAME OF LIFE"
+  puts "Welcome to CONWAY'S GAME OF LIFE" # still under construction!
 
   print "Input size of grid: "
   puts "\nExample: 10 10"
@@ -103,31 +103,31 @@ loop do
   print "You're choice: "
   choice = gets.chomp.to_i
 
-case choice
-when 1
-  print "\nHow many point: "
-  points = gets.chomp.to_i
+  case choice
+  when 1
+    print "\nHow many point: "
+    points = gets.chomp.to_i
 
-  gol_obj.insert_points(points,row,col) # function call
+    gol_obj.insert_points(points,row,col) # function call
 
-  gol_obj.clear_screen(choice) # method for clearing terminal
+    gol_obj.clear_screen(choice) # method for clearing terminal
 
-when 2
-  gol_obj.clear_grid(row,col) # function call
+  when 2
+    gol_obj.clear_grid(row,col) # function call
 
-  gol_obj.clear_screen(choice) # method for clearing terminal
+    gol_obj.clear_screen(choice) # method for clearing terminal
 
-when 0
-  gol_obj.clear_screen(choice) # method for clearing terminal
-  break
+  when 0
+    gol_obj.clear_screen(choice) # method for clearing terminal
+    break
 
-else
-  puts "Invalid option, choose 1-5"
+  else
+    puts "Invalid option, choose 1-5"
 
-  print "\nPress enter to continue..."
-  gets
-  system 'cls' # clear content on Windows cmd
-  system 'clear' # clear content on Terminal cmd
-end
+    print "\nPress enter to continue..."
+    gets
+    system 'cls' # clear content on Windows cmd
+    system 'clear' # clear content on Terminal cmd
+  end
 
 end

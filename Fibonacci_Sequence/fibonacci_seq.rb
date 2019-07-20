@@ -60,7 +60,7 @@ class MyFibonacci
       system 'clear' # clear content on Terminal cmd
     end
   end
-end
+end # end of class MyFibonacci
 
 fibo = MyFibonacci.new
 
@@ -113,7 +113,7 @@ loop do
 
   when 0 #
     fibo.clear_screen(choice) # method for clearing terminal
-    break # end the program if 4 is typed
+    break # end the program if 0 is typed
 
   else
     puts "Invalid option, choose 1-5"

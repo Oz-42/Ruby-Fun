@@ -34,7 +34,7 @@ class PigLatin
 
   def to_pig_latin
     @pig_latin_str.select do |word| # use each block to iterate through array word by word
-      char_array = word.split(//) # split the wrod to characters array
+      char_array = word.split(//) # split the word to characters array
 
       v1_str = word.downcase # lowercase the string
       v2_str = v1_str.gsub(" ","") # eliminte the space

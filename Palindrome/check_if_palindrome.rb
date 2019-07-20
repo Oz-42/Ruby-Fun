@@ -29,16 +29,18 @@ class Palindrome
 
   # check if string is palindrome
   def is_palindrome?
+    print "#{@pali_str}: "
+
     v1_str = @pali_str.downcase # lowercase the string
 
     @symbols.each do |sym|
       v1_str.gsub!(sym,"") # eliminte all the unwanted characters/symbols
     end
 
-    if (v1_str == v1_str.reverse) # reverse the string to see if it matches backwrds with forwards
-      puts "True"
+    if (v1_str == v1_str.reverse) # reverse the string to see if it matches backwards with forwards
+      print "is a Palnidrome!"
     else
-      puts "False"
+      print "is NOT Palindrome!"
     end
   end
 
@@ -62,15 +64,13 @@ while true
   print "Please type a string: "
   user_string = gets.chomp.to_s
 
-  puts "Is \"#{user_string}\" a Palindrome?"
-
   # Create object
   pali = Palindrome.new(user_string)
 
   # Function call
   pali.is_palindrome?
 
-  print "Continue? y/n: "
+  print "\nContinue? y/n: "
   continue = gets.chomp.to_s
 
   pali.clear_screen(0) # method for clearing terminal

@@ -14,7 +14,7 @@ Mini Cheddar Version ===> hEllO thErE strAngEr
 class MiniCheddar
 
   def initialize(str)
-    @ini_str = str.split.map(&:to_s) # initialize array string of words split from user inpu
+    @ini_str = str.split.map(&:to_s) # initialize array string of words split from user input
 
     @ini_str.each {|word| word.downcase!} # convert to lowercase
 
@@ -72,7 +72,7 @@ class MiniCheddar
     end
   end
 
-end
+end # endo of class MiniCheddar
 
 loop do
   # Prompt input
